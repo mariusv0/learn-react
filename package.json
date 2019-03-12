@@ -2,7 +2,7 @@
   "name": "learn-react",
   "version": "1.0.0",
   "description": "React demo using webpack",
-  "main": "src/index.js",
+  "main": "/src/app/index.js",
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --mode development --history-api-fallback --inline --progress",
