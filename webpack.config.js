@@ -1,13 +1,13 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, './src/app/index.js'),
   mode: "development",
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/dist/",
     filename: "[name].bundle.js"
   },
   devServer: {
@@ -43,6 +43,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './public/index.html'),
       inject: 'body'
+    }),
+    // clean dist folder
+    new CleanWebpackPlugin(['dist'], {
+      'verbose': true // write logs to console
     })
   ]
 };
