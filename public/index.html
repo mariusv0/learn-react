@@ -11,6 +11,20 @@
     <style>
       html, body {
           margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+      }
+      /* styling for render while resources are loading */
+      app[unresolved] {
+          display: block;
+          min-height: 100vh;
+          overflow: visible;
+      }
+      app[unresolved] header {
+        background-color: #282c34;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        font-size: calc(10px + 2vmin);
       }
   </style>
   </head>
@@ -19,7 +33,12 @@
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <app id="root">Learn React</app>
+    <app id="root" unresolved>
+      <header>
+        <img style="width: 60px; height: 45px;" src="data:image/png;base64,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" />
+        <a style="color: #61dafb;" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
+      </header>
+    </app>
     <script src="../dist/main.bundle.js"></script>
   </body>
 
