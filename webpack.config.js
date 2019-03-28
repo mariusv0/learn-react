@@ -11,10 +11,8 @@ module.exports = {
     filename: "[name].bundle.js"
   },
   devServer: {
-    contentBase: path.join(__dirname, "public/"),
-    port: 3000,
-    publicPath: "http://localhost:3000/dist/",
-    hotOnly: true
+    contentBase: path.join(__dirname, "./dist"),
+    port: 3000
   },
   module: {
     rules: [
@@ -42,7 +40,6 @@ module.exports = {
     extensions: ["*", ".js", ".jsx"]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './public/index.html'),
       inject: 'body'
