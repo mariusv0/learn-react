@@ -1,0 +1,7 @@
+.CounterBtn {
+    width: 60px;
+    height: 45px;
+    text-align: center;
+    border: 2px darkgray solid;
+    border-radius: 8px;
+  }
